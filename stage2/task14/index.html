@@ -32,13 +32,72 @@
          将空气质量指数大于60的城市显示到aqi-list的列表中
          */
         var a = '';
+
+        //必须创建一个新的数组
+        var b = new Array();
         for(var i=0; i<aqiData.length; i++) {
             if(aqiData[i][1] > 60) {
-                a += "<li>" +aqiData[i][0] + "," + aqiData[i][1] +"</li>";
+
+                b.push(aqiData[i]);
             }
+        }
+        b.sort( function (m,n) {
+            return n[1]-m[1];
+        })
+        for(var i=0; i<b.length; i++) {
+            a += "<li>第" + (i+1) + "名：" + b[i][0] + b[i][1] + "</li>";
         }
         document.getElementById("aqi-list").innerHTML = a;
     })();
+
+
+    //经典实例！！！
+//    (function () {
+//        /*
+//         在注释下方编写代码
+//         遍历读取aqiData中各个城市的数据
+//         将空气质量指数大于60的城市显示到aqi-list的列表中
+//         */
+//        //选出空气质量指数大于60的城市
+//        var sortCount = aqiData.filter(function(item){
+//            return (item[1] > 60);
+//        });
+//        //对大于60的城市进行排序
+//        sortCount.sort(function(a, b){
+//            return b[1] - a[1];
+//        });
+//        var aqiList = document.getElementById('aqi-list');
+//        //将结果显示
+//        for(var i = 0; i < sortCount.length; i++){
+//            aqiList.innerHTML += '<li>第' + (i + 1) + '名：' + sortCount[i][0] + '(样例) , ' + sortCount[i][1] + '</li>';
+//        }
+//    })();
+
+
+    //实例2
+//    (function () {
+//        /*
+//         在注释下方编写代码
+//         遍历读取aqiData中各个城市的数据
+//         将空气质量指数大于60的城市显示到aqi-list的列表中
+//         */
+//        /*遍历数组选出大于60的并组成新数组*/
+//        var a = new Array();
+//        for (var i = 0; i < aqiData.length; i++) {
+//            if ( aqiData[i][1]>=60 ) {
+//                a.push(aqiData[i]);
+//            }
+//        }
+//        /*将新数组排序*/
+//        a.sort( function (b,c) {
+//            return c[1]-b[1];
+//        })
+//        var l = "";
+//        for (var i = 0; i < a.length; i++) {
+//            l += "<li>第" + (i+1) + "名：" + a[i][0] + a[i][1] + "</li>";
+//        }
+//        document.getElementById('aqi-list').innerHTML = l ;
+//    })();
 
 </script>
 </body>

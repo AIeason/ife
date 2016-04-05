@@ -9,7 +9,8 @@
     "1-4": "browser-sync start --server --files \"stage1/task4/\" --startPath stage1/task4/index.html",
     "1-5": "browser-sync start --server --files \"stage1/task5/\" --startPath stage1/task5/index.html",
     "13": "browser-sync start --server --files \"stage2/task13/\" --startPath stage2/task13/index.html",
-    "14": "browser-sync start --server --files \"stage2/task14/\" --startPath stage2/task14/index.html"
+    "14": "browser-sync start --server --files \"stage2/task14/\" --startPath stage2/task14/index.html",
+    "15": "browser-sync start --server --files \"stage2/task15/\" --startPath stage2/task15/index.html"
   },
   "repository": {
     "type": "git",
