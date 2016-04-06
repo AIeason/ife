@@ -43,6 +43,7 @@
         for(var i=0; i<arr.length; i++) {
             //返回的是北京空气  北京        然后取北京
             var city = arr[i].innerText.match(/(.*?)空气/)[1];
+            //返回的是所有的b这里只有一个b但还是去b【0】
             var num = arr[i].getElementsByTagName('b')[0].innerText;
             data[i] = [];
             data[i].push(city);
