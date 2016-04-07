@@ -98,24 +98,22 @@
         }
 
 
-        //最厉害的怎样选取到点击的li!!!!!!!!!
-
+        //方法一@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         //childNodes 属性返回包含被选节点的子节点的 NodeList。
         //NodeList 对象代表一个有序的节点列表。
         //index 属性可返回选项的索引位置。
-        ul.onmouseover = function () {
-            var li = ul.getElementsByTagName('li');
-            for(var i in li) {
-                li[i].index = i;
-                li[i].onclick = function () {
-                    //alert(ul.childNodes[this.index].innerHTML);
-                    ul.removeChild(ul.childNodes[this.index]);
-                }
-            }
-        }
+//        ul.onmouseover = function () {
+//            var li = ul.getElementsByTagName('li');
+//            for(var i in li) {
+//                li[i].index = i;
+//                li[i].onclick = function () {
+//                    //alert(ul.childNodes[this.index].innerHTML);
+//                    ul.removeChild(ul.childNodes[this.index]);
+//                }
+//            }
+//        }
 
-        //写法二￥￥￥￥￥￥￥￥￥￥￥运用splice下面的可以获取目标节点@@@@@@@@@@@@@￥￥￥￥￥￥￥￥￥￥￥     不成功啊         ￥￥￥￥￥￥￥￥￥￥￥
-
+        //写法二
         //array.splice(index,howmany,item1,.....,itemX)
 //        index	必需。规定从何处添加/删除元素。
 //        该参数是开始插入和（或）删除的数组元素的下标，必须是数字。
@@ -126,17 +124,21 @@
 
 //        function getClickIndex(e) {
 //            var node = e.target;
+//            //htmlcollection类数组，强行调用数组indexOf的方法
 //            return [].indexOf.call(node.parentNode.children, node);
 ////            return 1;
 //        }
 //
-//        ul.onclick = function () {
-//            var li = ul.getElementsByTagName('li');
-//            alert(getClickIndex());
-//            li.splice(getClickIndex(),1);
+//        ul.onclick = function (e) {
+//                e.target.remove()
+////            ul.removeChild(ul.childNodes[getClickIndex(e)]);
 //        }
 
 
+//        方法三最简便的方法          @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        ul.onclick = function (e) {
+            e.target.remove();
+        }
 
 
     </script>
