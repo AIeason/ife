@@ -63,7 +63,8 @@ function addBtnHandle() {
  * 获取哪个城市数据被删，删除数据，更新表格显示
  */
 function delBtnHandle(city) {
-    // do sth.这是什么意思？？应该是规定的,可以直接delete!!!!!!!!!!!!!!!!!!!!!!
+    // do sth.这是什么意思？？为什么可以删除参数就删除了这一行!!!!!!!!!!!!!!!!!!!!!!
+    console.log(1111,aqiData[city])
     delete aqiData[city];
     renderAqiList();
 }

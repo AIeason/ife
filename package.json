@@ -11,7 +11,9 @@
     "13": "browser-sync start --server --files \"stage2/task13/\" --startPath stage2/task13/index.html",
     "14": "browser-sync start --server --files \"stage2/task14/\" --startPath stage2/task14/index.html",
     "15": "browser-sync start --server --files \"stage2/task15/\" --startPath stage2/task15/index.html",
-    "16": "browser-sync start --server --files \"stage2/task16/\" --startPath stage2/task16/index.html"
+    "16": "browser-sync start --server --files \"stage2/task16/\" --startPath stage2/task16/index.html",
+    "17": "browser-sync start --server --files \"stage2/task17/\" --startPath stage2/task17/index.html",
+    "18": "browser-sync start --server --files \"stage2/task18/\" --startPath stage2/task18/index.html"
   },
   "repository": {
     "type": "git",

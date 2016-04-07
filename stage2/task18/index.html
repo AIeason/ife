@@ -1,0 +1,144 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+    <style type="text/css">
+        li {
+            /*设置成行内块元素*/
+            display: inline-block;
+            margin: 10px;
+            background: red;
+            font-size:60px;
+            text-align: center;
+            line-height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input id="num" type="number" placeholder="请输入数字">
+        <button id="left-input">左侧入</button>
+        <button id="right-input">右侧入</button>
+        <button id="left-out">左侧出</button>
+        <button id="right-out">右侧出</button>
+    </div>
+
+    <div>
+        <ul id="ul"></ul>
+    </div>
+
+    <script>
+        var num = document.getElementById("num");
+        var leftinput = document.getElementById("left-input");
+        var ri = document.getElementById("right-input");
+        var lo = document.getElementById("left-out");
+        var ro = document.getElementById("right-out");
+        var ul = document.getElementById("ul");
+
+        //left-input左输入
+        leftinput.onclick = function () {
+            if(num.value.length <= 0) {
+                alert("输入为空")
+                return;
+            }
+            if(!num.value.match(/^\d+$/)){
+                alert("请输入数字")
+                return;
+            }
+            var li = document.createElement("li");
+            li.innerHTML = num.value;
+            //在已有的子节点前插入一个新的子节点
+            ul.insertBefore(li,ul.firstChild);
+            //清空输入框
+            num.value = null;
+
+        }
+
+        //right-input右输入
+        ri.onclick = function () {
+            if(num.value.length <= 0) {
+                alert("输入为空")
+                return;
+            }
+            if(!num.value.match(/^\d+$/)){
+                alert("请输入数字")
+                return;
+            }
+            var li = document.createElement("li");
+            li.innerHTML = num.value;
+            //在最后插入节点
+            ul.appendChild(li);
+            //清空输入框
+            num.value = null;
+
+        }
+
+        //left-out左输出
+        lo.onclick = function () {
+            //hasChildNodes() 方法可在某节点用于任何子节点时返回 true，否则返回 false。
+            if(ul.hasChildNodes()) {
+                ul.removeChild(ul.firstChild);
+                alert(ul.firstChild.innerHTML);
+            }else {
+                alert("没有元素可删除");
+                return;
+            }
+        }
+
+        //right-out右输出
+        ro.onclick = function () {
+            if(ul.hasChildNodes()) {
+                ul.removeChild(ul.lastChild);
+                alert(ul.lastChild.innerHTML);
+            }else {
+                alert("没有元素可删除");
+                return;
+            }
+        }
+
+
+        //最厉害的怎样选取到点击的li!!!!!!!!!
+
+        //childNodes 属性返回包含被选节点的子节点的 NodeList。
+        //NodeList 对象代表一个有序的节点列表。
+        //index 属性可返回选项的索引位置。
+        ul.onmouseover = function () {
+            var li = ul.getElementsByTagName('li');
+            for(var i in li) {
+                li[i].index = i;
+                li[i].onclick = function () {
+                    //alert(ul.childNodes[this.index].innerHTML);
+                    ul.removeChild(ul.childNodes[this.index]);
+                }
+            }
+        }
+
+        //写法二￥￥￥￥￥￥￥￥￥￥￥运用splice下面的可以获取目标节点@@@@@@@@@@@@@￥￥￥￥￥￥￥￥￥￥￥     不成功啊         ￥￥￥￥￥￥￥￥￥￥￥
+
+        //array.splice(index,howmany,item1,.....,itemX)
+//        index	必需。规定从何处添加/删除元素。
+//        该参数是开始插入和（或）删除的数组元素的下标，必须是数字。
+//        howmany	必需。规定应该删除多少元素。必须是数字，但可以是 "0"。
+//        如果未规定此参数，则删除从 index 开始到原数组结尾的所有元素。
+//        item1, ..., itemX	可选。要添加到数组的新元素
+        //target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。
+
+//        function getClickIndex(e) {
+//            var node = e.target;
+//            return [].indexOf.call(node.parentNode.children, node);
+////            return 1;
+//        }
+//
+//        ul.onclick = function () {
+//            var li = ul.getElementsByTagName('li');
+//            alert(getClickIndex());
+//            li.splice(getClickIndex(),1);
+//        }
+
+
+
+
+    </script>
+</body>
+</html>
